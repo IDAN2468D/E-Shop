@@ -1,0 +1,5 @@
+{
+  "name": "E-Shop IL",
+  "description": "A modern Hebrew e-commerce application using React, Redux Toolkit, and Tailwind CSS.",
+  "requestFramePermissions": []
+}

@@ -1,0 +1,195 @@
+
+import { Product } from '../types';
+
+const API_BASE_URL = 'http://localhost:3000'; 
+
+export const CATEGORIES = [
+  { id: 'all', label: 'הכל', image: 'https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=150&q=80' },
+  { id: 'ביגוד', label: 'ביגוד', image: 'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=150&q=80' },
+  { id: 'הנעלה', label: 'הנעלה', image: 'https://images.unsplash.com/photo-1549298916-b41d501d3772?auto=format&fit=crop&w=150&q=80' },
+  { id: 'אקססוריז', label: 'אקססוריז', image: 'https://images.unsplash.com/photo-1576053139778-7e32f2ae3cfd?auto=format&fit=crop&w=150&q=80' },
+  { id: 'אלקטרוניקה', label: 'אלקטרוניקה', image: 'https://images.unsplash.com/photo-1498049860654-af1a5c5668ba?auto=format&fit=crop&w=150&q=80' },
+  { id: 'עיצוב לבית', label: 'עיצוב לבית', image: 'https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?auto=format&fit=crop&w=150&q=80' },
+];
+
+// Updated mock data with reliable, high-quality fashion, electronics, and home images
+const MOCK_PRODUCTS: Product[] = [
+  // --- FASHION ---
+  {
+    id: 101,
+    name: "מעיל חורף אלגנטי",
+    price: 249.90,
+    oldPrice: 350.00,
+    image: "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?auto=format&fit=crop&w=800&q=80",
+    description: "מעיל צמר איכותי, מושלם לימים קרים. גזרה מחמיאה ונוחה.",
+    category: "ביגוד",
+    rating: 4.8,
+    reviews: 120
+  },
+  {
+    id: 102,
+    name: "סריג אקרילי ורוד",
+    price: 129.90,
+    image: "https://images.unsplash.com/photo-1576566588028-4147f3842f27?auto=format&fit=crop&w=800&q=80",
+    description: "סריג נעים ורך למגע בצבע ורוד עתיק. מתאים ליום יום ולערב.",
+    category: "ביגוד",
+    rating: 4.5,
+    reviews: 85
+  },
+  {
+    id: 103,
+    name: "ג'קט ג'ינס קלאסי",
+    price: 189.90,
+    image: "https://images.unsplash.com/photo-1523381210434-271e8be1f52b?auto=format&fit=crop&w=800&q=80",
+    description: "ג'קט ג'ינס על-זמני בגזרה ישרה. פריט חובה בכל ארון.",
+    category: "ביגוד",
+    rating: 4.7,
+    reviews: 230
+  },
+  {
+    id: 104,
+    name: "שמלת קיץ פרחונית",
+    price: 159.00,
+    oldPrice: 199.00,
+    image: "https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?auto=format&fit=crop&w=800&q=80",
+    description: "שמלה קלילה ואוורירית עם הדפס עדין.",
+    category: "ביגוד",
+    rating: 4.9,
+    reviews: 64
+  },
+  {
+    id: 105,
+    name: "חליפת עסקים בז'",
+    price: 499.00,
+    image: "https://images.unsplash.com/photo-1585487000160-6ebcfceb0d03?auto=format&fit=crop&w=800&q=80",
+    description: "חליפת שני חלקים אלגנטית ומקצועית בגוון בז'.",
+    category: "ביגוד",
+    rating: 4.6,
+    reviews: 42
+  },
+  {
+    id: 106,
+    name: "צעיף קשמיר רך",
+    price: 89.90,
+    image: "https://images.unsplash.com/photo-1601924994987-69e26d50dc26?auto=format&fit=crop&w=800&q=80",
+    description: "צעיף רך ומחמם, תוספת מושלמת לכל הופעה.",
+    category: "אקססוריז",
+    rating: 4.4,
+    reviews: 15
+  },
+  {
+    id: 107,
+    name: "נעלי סניקרס אורבניות",
+    price: 299.90,
+    oldPrice: 380.00,
+    image: "https://images.unsplash.com/photo-1549298916-b41d501d3772?auto=format&fit=crop&w=800&q=80",
+    description: "נעלי סניקרס נוחות ומעוצבות להליכה יומיומית.",
+    category: "הנעלה",
+    rating: 4.8,
+    reviews: 56
+  },
+  {
+    id: 108,
+    name: "תיק עור יוקרתי",
+    price: 349.00,
+    image: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=800&q=80",
+    description: "תיק צד איכותי מעור בצבע חום קלאסי.",
+    category: "אקססוריז",
+    rating: 4.9,
+    reviews: 34
+  },
+  {
+    id: 109,
+    name: "שעון יד אלגנטי",
+    price: 599.00,
+    oldPrice: 750.00,
+    image: "https://images.unsplash.com/photo-1524592094714-0f0654e20314?auto=format&fit=crop&w=800&q=80",
+    description: "שעון יד בעיצוב מינימליסטי עם רצועת עור.",
+    category: "אקססוריז",
+    rating: 4.7,
+    reviews: 28
+  },
+  {
+    id: 110,
+    name: "משקפי שמש",
+    price: 199.00,
+    image: "https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=800&q=80",
+    description: "משקפי שמש בעיצוב רטרו עם הגנת UV מלאה.",
+    category: "אקססוריז",
+    rating: 4.5,
+    reviews: 45
+  },
+
+  // --- ELECTRONICS ---
+  {
+    id: 201,
+    name: "אוזניות אלחוטיות Pro",
+    price: 899.00,
+    oldPrice: 1100.00,
+    image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=800&q=80",
+    description: "אוזניות Over-ear עם ביטול רעשים אקטיבי וסאונד עשיר.",
+    category: "אלקטרוניקה",
+    rating: 4.9,
+    reviews: 340
+  },
+  {
+    id: 202,
+    name: "רמקול חכם מיני",
+    price: 249.00,
+    image: "https://images.unsplash.com/photo-1589492477829-5e65395b66cc?auto=format&fit=crop&w=800&q=80",
+    description: "רמקול עוצמתי בעיצוב קומפקטי עם עוזרת קולית מובנית.",
+    category: "אלקטרוניקה",
+    rating: 4.6,
+    reviews: 112
+  },
+  {
+    id: 203,
+    name: "מצלמת פילם רטרו",
+    price: 450.00,
+    image: "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?auto=format&fit=crop&w=800&q=80",
+    description: "מצלמת פילם קלאסית לחובבי צילום אנלוגי.",
+    category: "אלקטרוניקה",
+    rating: 4.8,
+    reviews: 89
+  },
+
+  // --- HOME GOODS ---
+  {
+    id: 301,
+    name: "מנורת לילה מעוצבת",
+    price: 189.00,
+    image: "https://images.unsplash.com/photo-1507473883581-201d70d925c3?auto=format&fit=crop&w=800&q=80",
+    description: "מנורה שולחנית בעיצוב נורדי מודרני.",
+    category: "עיצוב לבית",
+    rating: 4.7,
+    reviews: 55
+  },
+  {
+    id: 302,
+    name: "עציץ סוקולנט קרמיקה",
+    price: 69.90,
+    image: "https://images.unsplash.com/photo-1485955900006-10f4d324d411?auto=format&fit=crop&w=800&q=80",
+    description: "עציץ מלאכותי ריאליסטי בכלי קרמיקה לבן.",
+    category: "עיצוב לבית",
+    rating: 4.9,
+    reviews: 210
+  },
+  {
+    id: 303,
+    name: "סט כריות נוי",
+    price: 149.00,
+    oldPrice: 200.00,
+    image: "https://images.unsplash.com/photo-1584100936595-c0654b55a2e6?auto=format&fit=crop&w=800&q=80",
+    description: "זוג כריות נוי רכות בצבע אפור בהיר לסלון.",
+    category: "עיצוב לבית",
+    rating: 4.5,
+    reviews: 78
+  }
+];
+
+export const fetchProducts = async (): Promise<Product[]> => {
+  // Simulating API call
+  return new Promise((resolve) => {
+    setTimeout(() => resolve(MOCK_PRODUCTS), 600);
+  });
+};
